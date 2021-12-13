@@ -1,0 +1,46 @@
+<section class="details">
+  <h1 class="details__titulo-principal">Detalhes da iniciativa</h1>
+  <div class="details__container" *ngIf="initiative">
+    <div class="main--content">
+      <h1>{{ initiative.iniciativa }}</h1>
+      <h2>{{ initiative.objetivo }}</h2>
+      <p><strong>Categoria: </strong>{{ initiative.categoria }}</p>
+      <p><strong>Financiamento: </strong>{{ initiative.financiamento }}</p>
+      <h3><strong>Contribuição:</strong></h3>
+      <p>{{ initiative.contribuicao | titlecase }}</p>
+      <h3><strong>Descrição:</strong></h3>
+      <p>{{ initiative.descricao }}</p>
+      <h3><strong>Público e abrangência:</strong></h3>
+      <p>{{ initiative.publico | titlecase }}</p>
+      <p>{{ initiative.abrangencia | titlecase }}</p>
+      <h3><strong>Link(s):</strong></h3>
+      <p>{{ initiative.link }}</p>
+
+      <h3><strong>Informações adicionais:</strong></h3>
+      <p>{{ initiative.info_adicionais }}</p>
+      <div class="button">
+        <a id="primary" (click)="aprovar(initiative)">Aprovar</a>
+      </div>
+    </div>
+    <div class="side--content">
+      <div class="organization">
+        <h3><strong>Organização:</strong></h3>
+        <h2>{{ initiative.sigla_inst }}</h2>
+        <p>{{ initiative.dept }}</p>
+        <p>{{ initiative.categoria_inst }}</p>
+        <h3><strong>Localização:</strong></h3>
+        <p>{{ initiative.cidade }} - {{ initiative.uf }}</p>
+        <p>{{ initiative.regiao }}</p>
+        <h3><strong>Responsáveis:</strong></h3>
+        <p>{{ initiative.responsaveis }}</p>
+        <h3><strong>Contato:</strong></h3>
+        <p>{{ initiative.contato }}</p>
+        <h3><strong>Adicionado em:</strong></h3>
+        <p>{{ initiative.data_criacao }}</p>
+        <h3><strong>Última atualização:</strong></h3>
+        <p>{{ initiative.data_atualizacao }}</p>
+        <!-- <a href="#">Atualizar?</a> -->
+      </div>
+    </div>
+  </div>
+</section>

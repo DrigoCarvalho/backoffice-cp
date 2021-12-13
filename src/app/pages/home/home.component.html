@@ -1,0 +1,33 @@
+<div
+  class="home-container"
+  *ngIf="listaIniciativas$ | async as iniciativas; else noData"
+>
+  <h1>
+    Olá, temos um total de {{ iniciativas.length }} iniciativas aguardando
+    aprovação
+  </h1>
+  <table *ngIf="iniciativas.length > 0">
+    <thead>
+      <tr>
+        <th>Iniciativa</th>
+        <th>Local</th>
+        <th>Instituição</th>
+        <th>Categoria</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of iniciativas" (click)="redirect(data)">
+        <td>{{ data.iniciativa }}</td>
+        <td>{{ data.cidade }} - {{ data.uf }}</td>
+        <td>{{ data.sigla_inst }} - {{ data.categoria_inst }}</td>
+        <td>{{ data.categoria }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #noData>
+  <div class="no-data">
+    <h1>Buscando Informações...</h1>
+  </div>
+</ng-template>
